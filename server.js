@@ -1,84 +1,38 @@
-//
-// # SimpleServer
-//
-// A simple chat server using Socket.IO, Express, and Async.
-//
-var http = require('http');
-var path = require('path');
+var restify = require('restify');
+var builder = require('botbuilder');
+var sourceFile = require('./sourceFile');
 
-var async = require('async');
-var socketio = require('socket.io');
-var express = require('express');
+//luis ai app model for TATA SKY
+var recognizer = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=b746432a-7f7d-44be-92eb-900db813a733&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
+var dialog  = new builder.IntentDialog({ recognizers: [recognizer] });
 
-//
-// ## SimpleServer `SimpleServer(obj)`
-//
-// Creates a new instance of SimpleServer with the following options:
-//  * `port` - The HTTP port to listen on. If `process.env.PORT` is set, _it overrides this value_.
-//
-var router = express();
-var server = http.createServer(router);
-var io = socketio.listen(server);
-
-router.use(express.static(path.resolve(__dirname, 'client')));
-var messages = [];
-var sockets = [];
-
-io.on('connection', function (socket) {
-    messages.forEach(function (data) {
-      socket.emit('message', data);
-    });
-
-    sockets.push(socket);
-
-    socket.on('disconnect', function () {
-      sockets.splice(sockets.indexOf(socket), 1);
-      updateRoster();
-    });
-
-    socket.on('message', function (msg) {
-      var text = String(msg || '');
-
-      if (!text)
-        return;
-
-      socket.get('name', function (err, name) {
-        var data = {
-          name: name,
-          text: text
-        };
-
-        broadcast('message', data);
-        messages.push(data);
-      });
-    });
-
-    socket.on('identify', function (name) {
-      socket.set('name', String(name || 'Anonymous'), function (err) {
-        updateRoster();
-      });
-    });
-  });
-
-function updateRoster() {
-  async.map(
-    sockets,
-    function (socket, callback) {
-      socket.get('name', callback);
-    },
-    function (err, names) {
-      broadcast('roster', names);
-    }
-  );
-}
-
-function broadcast(event, data) {
-  sockets.forEach(function (socket) {
-    socket.emit(event, data);
-  });
-}
-
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
-  var addr = server.address();
-  console.log("Chat server listening at", addr.address + ":" + addr.port);
+// Get secrets from server environment
+var connector = new builder.ChatConnector({
+  appId: process.env.MICROSOFT_APP_ID,
+  appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
+
+var bot = new builder.UniversalBot(connector);
+
+// // // Setup Restify Server
+var server = restify.createServer();
+// Handle Bot Framework messages
+server.post('/api/messages', connector.listen());
+// Serve a static web page
+server.get(/.*/, restify.serveStatic({
+	'directory': '.',
+	'default': 'index.html'
+}));
+
+server.listen(process.env.port|| process.env.PORT || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url); 
+});
+
+
+// Create bot root dialog
+bot.dialog('/', dialog);
+
+// =============================================================================================
+// DIALOG MATCH AND STATIC RESPONSE
+
+dialog.matches('Insurance', sourceFile.Insurance);
