@@ -19,8 +19,9 @@ DiffCompPremium:"",
 Discounts:"Discounts available for the Premium of car insurance \n • Voluntary Deductible. \n • No Claim Bonus. \n • Automobile Association Membership. \n • Installing anti theft devices. \n • Discount for Vintage Cars.",
 Deductible:"Deductible is the damage repair charges that the insured has to pay from his own pocket in case of the claim after which the insurance company releases the claim fund. It is the amount that is not covered under the policy. • Compulsory Deductible is the mandatory pre determined amount that the policyholder has to pay in case of accident or damages. For Private Cars (not exceeding 1500 CC) compulsory deductible is Rs. 1000 and for Private Cars (exceeding 1500 CC) it is Rs. 2000.• Voluntary Deductible is the pre determined amount that the policyholder accepts to pay on his own in case of damage or accident.  Deductible is the damage repair charges that the insured has to pay from his own pocket in case of the claim after which the insurance company releases the claim fund. It is the amount that is not covered under the policy.",
 Claim:"Claim is a request for payment of the contractual benefits by the insurer that is made as soon as the contingency covered by the policy arises. A written request is made by the insured or the nominee for the insurance company to cover the incurred loss, which is submitted on a standard form provided by the insurance company.",
-NCB:"",
+Greeting: "Welcome ! Please share your question."
 //App 2
+NCB:"",
 Bonus:"Bonus is the amount added on the basic sum assured under a with-profit life insurance policy",
 
 

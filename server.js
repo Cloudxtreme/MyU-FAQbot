@@ -42,6 +42,7 @@ bot.dialog('/', dialog);
 
 // =============================================================================================
 // DIALOG MATCH AND STATIC RESPONSE
+dialog.matches('Greeting', builder.DialogAction.send(sourceFile.Greeting));
 dialog.matches('None', builder.DialogAction.send(sourceFile.None));
 dialog.matches('Insurance', builder.DialogAction.send(sourceFile.Insurance));
 dialog.matches('CIMandate', builder.DialogAction.send(sourceFile.CIMandate));
