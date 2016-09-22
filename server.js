@@ -3,8 +3,9 @@ var builder = require('botbuilder');
 var sourceFile = require('./sourceFile');
 
 //luis ai app model for TATA SKY
-var recognizer = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=b746432a-7f7d-44be-92eb-900db813a733&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
-var dialog  = new builder.IntentDialog({ recognizers: [recognizer] });
+var recognizer1 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=b746432a-7f7d-44be-92eb-900db813a733&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
+var recognizer2 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=37d62173-2e8e-45e0-96fa-6b5e054096da&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
+var dialog  = new builder.IntentDialog({ recognizers: [recognizer1, recognizer2] });
 
 // Get secrets from server environment
 var connector = new builder.ChatConnector({
@@ -41,7 +42,7 @@ bot.dialog('/', dialog);
 
 // =============================================================================================
 // DIALOG MATCH AND STATIC RESPONSE
-
+dialog.matches('None', builder.DialogAction.send(sourceFile.None));
 dialog.matches('Insurance', builder.DialogAction.send(sourceFile.Insurance));
 dialog.matches('CIMandate', builder.DialogAction.send(sourceFile.CIMandate));
 dialog.matches('CITypes',  builder.DialogAction.send(sourceFile.CITypes));
@@ -59,4 +60,5 @@ dialog.matches('PlaceOfReg',  builder.DialogAction.send(sourceFile.PlaceOfReg));
 dialog.matches('DiffCompPremium',  builder.DialogAction.send(sourceFile.DiffCompPremium));
 dialog.matches('Discounts',  builder.DialogAction.send(sourceFile.Discounts));
 dialog.matches('Deductible',  builder.DialogAction.send(sourceFile.Deductible));
-dialog.matches('Claim',  builder.DialogAction.send(sourceFile.claim));
+dialog.matches('Claim',  builder.DialogAction.send(sourceFile.Claim));
+dialog.matches('Bonus',  builder.DialogAction.send(sourceFile.Bonus));
