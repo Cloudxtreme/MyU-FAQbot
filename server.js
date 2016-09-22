@@ -42,7 +42,8 @@ bot.dialog('/', dialog);
 
 // =============================================================================================
 // DIALOG MATCH AND STATIC RESPONSE
-dialog.matches('Greeting', builder.DialogAction.send(sourceFile.Greeting));
+
+//App 1
 dialog.matches('None', builder.DialogAction.send(sourceFile.None));
 dialog.matches('Insurance', builder.DialogAction.send(sourceFile.Insurance));
 dialog.matches('CIMandate', builder.DialogAction.send(sourceFile.CIMandate));
@@ -62,4 +63,42 @@ dialog.matches('DiffCompPremium',  builder.DialogAction.send(sourceFile.DiffComp
 dialog.matches('Discounts',  builder.DialogAction.send(sourceFile.Discounts));
 dialog.matches('Deductible',  builder.DialogAction.send(sourceFile.Deductible));
 dialog.matches('Claim',  builder.DialogAction.send(sourceFile.Claim));
+dialog.matches('Greeting', builder.DialogAction.send(sourceFile.Greeting));
+
+//App 2
+dialog.matches('NCB',  builder.DialogAction.send(sourceFile.NCB));
 dialog.matches('Bonus',  builder.DialogAction.send(sourceFile.Bonus));
+dialog.matches('OldNoClaim',  builder.DialogAction.send(sourceFile.OldNoClaim));
+dialog.matches('NoClaimTransfer',  builder.DialogAction.send(sourceFile.NoClaimTransfer));
+dialog.matches('Insurer',  builder.DialogAction.send(sourceFile.Insurer));
+dialog.matches('NoClaimLapse',  builder.DialogAction.send(sourceFile.NoClaimLapse));
+dialog.matches('AAMDiscount',  builder.DialogAction.send(sourceFile.AAMDiscount));
+dialog.matches('ATDDiscount',  builder.DialogAction.send(sourceFile.ATDDiscount));
+dialog.matches('SellCar',  builder.DialogAction.send(sourceFile.SellCar));
+dialog.matches('InsureRenewal',  builder.DialogAction.send(sourceFile.InsureRenewal));
+dialog.matches('CancelInsure',  builder.DialogAction.send(sourceFile.CancelInsure));
+dialog.matches('Installments',  builder.DialogAction.send(sourceFile.Installments));
+dialog.matches('InsureCert',  builder.DialogAction.send(sourceFile.InsureCert));
+dialog.matches('DocsNeeded',  builder.DialogAction.send(sourceFile.DocsNeeded));
+dialog.matches('TotalLoss',  builder.DialogAction.send(sourceFile.TotalLoss));
+dialog.matches('Insured',  builder.DialogAction.send(sourceFile.Insured));
+dialog.matches('CashlessClaims',  builder.DialogAction.send(sourceFile.CashlessClaims));
+dialog.matches('CarStolen',  builder.DialogAction.send(sourceFile.CarStolen));
+dialog.matches('OtherPerson',  builder.DialogAction.send(sourceFile.OtherPerson));
+dialog.matches('CarAccessories',  builder.DialogAction.send(sourceFile.CarAccessories));
+
+//App 3
+dialog.matches('BetterIDV',  builder.DialogAction.send(sourceFile.BetterIDV));
+dialog.matches('NCBAllowed',  builder.DialogAction.send(sourceFile.NCBAllowed));
+dialog.matches('BreakInInsure',  builder.DialogAction.send(sourceFile.BreakInInsure));
+dialog.matches('LPGCNG',  builder.DialogAction.send(sourceFile.LPGCNG));
+dialog.matches('Endorsement',  builder.DialogAction.send(sourceFile.Endorsement));
+dialog.matches('Electric',  builder.DialogAction.send(sourceFile.Electric));
+dialog.matches('Bike',  builder.DialogAction.send(sourceFile.Bike));
+dialog.matches('RTO',  builder.DialogAction.send(sourceFile.RTO));
+dialog.matches('RTOCode',  builder.DialogAction.send(sourceFile.RTOCode));
+dialog.matches('Aggregator',  builder.DialogAction.send(sourceFile.Aggregator));
+dialog.matches('DiffAggregator',  builder.DialogAction.send(sourceFile.DiffAggregator));
+dialog.matches('MyUniverse',  builder.DialogAction.send(sourceFile.MyUniverse));
+dialog.matches('MyUniverseTypes',  builder.DialogAction.send(sourceFile.MyUniverseTypes));
+dialog.matches('EasyPolicy',  builder.DialogAction.send(sourceFile.EasyPolicy));
