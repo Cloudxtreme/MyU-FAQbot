@@ -57,5 +57,6 @@ dialog.matches('CarEval', builder.DialogAction.send(sourceFile.CarEval));
 dialog.matches('IDV',  builder.DialogAction.send(sourceFile.IDV));
 dialog.matches('PlaceOfReg',  builder.DialogAction.send(sourceFile.PlaceOfReg));
 dialog.matches('DiffCompPremium',  builder.DialogAction.send(sourceFile.DiffCompPremium));
-dialog.matches('Discounts',  builder.DialogAction.send(sourceFile.Match));
+dialog.matches('Discounts',  builder.DialogAction.send(sourceFile.Discounts));
 dialog.matches('Deductible',  builder.DialogAction.send(sourceFile.Deductible));
+dialog.matches('Claim',  builder.DialogAction.send(sourceFile.claim));
