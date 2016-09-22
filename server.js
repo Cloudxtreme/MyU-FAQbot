@@ -5,7 +5,8 @@ var sourceFile = require('./sourceFile');
 //luis ai app model for TATA SKY
 var recognizer1 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=b746432a-7f7d-44be-92eb-900db813a733&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
 var recognizer2 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=37d62173-2e8e-45e0-96fa-6b5e054096da&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
-var dialog  = new builder.IntentDialog({ recognizers: [recognizer1, recognizer2] });
+var recognizer3 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=9ef81def-abde-4531-8470-af3024ab7d57&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
+var dialog  = new builder.IntentDialog({ recognizers: [recognizer1, recognizer2, recognizer3] });
 
 // Get secrets from server environment
 var connector = new builder.ChatConnector({
