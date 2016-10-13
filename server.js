@@ -2,7 +2,7 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var sourceFile = require('./sourceFile');
 
-//luis ai app model for TATA SKY
+//luis ai app model for MyU
 var recognizer1 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=b746432a-7f7d-44be-92eb-900db813a733&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
 var recognizer2 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=37d62173-2e8e-45e0-96fa-6b5e054096da&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
 var recognizer3 = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v1/application?id=9ef81def-abde-4531-8470-af3024ab7d57&subscription-key=c9ad898006c6426d95251f015167aaa1&q=');
@@ -30,19 +30,8 @@ server.listen(process.env.port|| process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url); 
 });
 
-// =============================================================================================
-//DEFAULT BOT BUILDER TO CONNECT WITH CONSOLE CONNECTOR
-// var builder = require('botbuilder');
-// var connector = new builder.ConsoleConnector().listen();
-// var bot = new builder.UniversalBot(connector);
-//DEFAULT BOT BUILDER TO CONNECT WITH CONSOLE CONNECTOR
-// =============================================================================================
-
 // Create bot root dialog
 bot.dialog('/', dialog);
-
-// =============================================================================================
-// DIALOG MATCH AND STATIC RESPONSE
 
 //App 1
 dialog.matches('None', builder.DialogAction.send(sourceFile.None));
